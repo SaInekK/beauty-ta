@@ -1,23 +1,6 @@
 import re
 from typing import Iterable
 
-test_text = '''{name}, ваша запись изменена:
-⌚ {day_month} в {start_time}
-👩 {master}
-Услуги:
-{services}
-управление записью {record_link}'''
-
-list_keys = [
-    'name',
-    'day_month',
-    'day_of_week',
-    'start_time',
-    'end_time',
-    'master',
-    'services',
-]
-
 
 def check_text_template(text: str, keys: Iterable[str]):
     parentheses_count = check_parentheses_equality(text)
@@ -45,5 +28,25 @@ def check_parentheses_equality(text) -> int:
     return left_par_matches
 
 
-if __name__ == '__main__':
+def main():
+    test_text = '''{name}, ваша запись изменена:
+    ⌚ {day_month} в {start_time}
+    👩 {master}
+    Услуги:
+    {services}
+    управление записью {record_link}'''
+
+    list_keys = [
+        'name',
+        'day_month',
+        'day_of_week',
+        'start_time',
+        'end_time',
+        'master',
+        'services',
+    ]
     check_text_template(test_text, list_keys)
+
+
+if __name__ == '__main__':
+    main()
